@@ -1,6 +1,7 @@
 import config from 'config'
 import Logger from './Logger'
 import Request from './Request'
+import mapLimit from 'async/mapLimit'
 
 const linkHeaderRegex = /<(?<link>.+)>; rel="type"/
 
@@ -44,7 +45,7 @@ export default class Crawler {
       const containedResourcesArray = this.containedResourcesArray(response.body)
       this.logger.debug(`${uri} contains ${containedResourcesArray}`)
 
-      const containedResourcePromises = containedResourcesArray.map(async child => {
+      const containedResourcePromises = mapLimit(containedResourcesArray, config.get('concurrentRequests'), async child => {
         if (child)
           // Recurse down into each child resource
           await this.request(child, onResource)
