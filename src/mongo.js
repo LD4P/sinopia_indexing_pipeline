@@ -11,7 +11,8 @@ const connect = () => {
       {
         sslValidate: true,
         sslCA: ca,
-        useNewUrlParser: true
+        useNewUrlParser: true,
+        useUnifiedTopology: true
       })
   } else {
     return MongoClient.connect(url, { useUnifiedTopology: true })
