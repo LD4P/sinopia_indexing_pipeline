@@ -41,6 +41,7 @@ export default class {
       "http://rdaregistry.info/Elements/e/P20315",
       "http://rdaregistry.info/Elements/i/P40085",
       "http://rdaregistry.info/Elements/m/P30156",
+      "http://rdaregistry.info/Elements/n/P80068",
     ])
     if (titles.length > 0) this.indexObject["title"] = titles
   }
