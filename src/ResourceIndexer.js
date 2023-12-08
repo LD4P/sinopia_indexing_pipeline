@@ -91,7 +91,7 @@ export default class {
         this.indexObject[fieldName] &&
         this.indexObject[fieldName].length > 0
       ) {
-        labelValues.push(this.indexObject[fieldName])
+        labelValues.push(this.indexObject[fieldName][0])
       }
     })
     this.indexObject["label"] =
