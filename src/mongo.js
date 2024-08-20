@@ -7,7 +7,7 @@ const connect = () => {
     "dbPassword"
   )}@${config.get("dbHost")}:${config.get("dbPort")}/${config.get("dbName")}`
   if (config.get("isAws")) {
-    const ca = [fs.readFileSync("rds-combined-ca-bundle.pem")]
+    const ca = [fs.readFileSync("global-bundle.pem")]
 
     return MongoClient.connect(
       `${url}?ssl=true&replicaSet=rs0&readPreference=secondaryPreferred`,
