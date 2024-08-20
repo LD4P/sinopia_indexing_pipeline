@@ -15,6 +15,7 @@ const connect = () => {
         sslValidate: true,
         sslCA: ca,
         useNewUrlParser: true,
+        useUnifiedTopology: true,
       }
     )
   } else {
